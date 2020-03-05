@@ -90,17 +90,21 @@ int SendUdp(char *hostname, char *portNum, char *packetData, int packetSize) {
         /*
          * Create and use a temporary structure to ensure type alignment
          */
-        struct sockaddr_in tempSockAddr;
+        union {
+           struct sockaddr_in attr1;
+           struct sockaddr attr2;
+        } tempSockAddr;
+
         memcpy(&tempSockAddr, result->ai_addr, sizeof(tempSockAddr));
 
         printf("sending data to '%s' (IP : %s); port %d\n", result->ai_canonname,
-            inet_ntoa(tempSockAddr.sin_addr), port);
+            inet_ntoa(tempSockAddr.attr1.sin_addr), port);
 
         /*
          * Copy the temporary message back to the original source as a good practice
          * even if not used later
          */
-        memcpy(result->ai_addr, &tempSockAddr, sizeof(*(result->ai_addr)));
+        memcpy(result->ai_addr, &tempSockAddr, sizeof(tempSockAddr));
     }
 
 

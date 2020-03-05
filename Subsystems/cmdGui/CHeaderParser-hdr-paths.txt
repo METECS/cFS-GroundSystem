@@ -15,3 +15,5 @@
 #
 #../../../../../apps/to_lab/fsw/src/to_lab_msg.h
 #../../../../../apps/ci_lab/fsw/src/ci_lab_msg.h
+#../../../../apps/bcamp_io_app/fsw/src/bcamp_io_app_msg.h
+../../../../apps/bcamp_mn_app/fsw/src/bcamp_mn_app_msg.h

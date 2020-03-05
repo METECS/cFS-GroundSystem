@@ -13,3 +13,6 @@
 Event Messages,            EventMessage.py,         0x808,   null
 Executive Services,        GenericTelemetry.py,     0x800,   cfe-es-hk-tlm.txt
 Table services,            GenericTelemetry.py,     0x804,   cfe-tbl-hk-tlm.txt
+Sample App,                GenericTelemetry.py,     0x883,   cfs-sample-hk-tlm.txt
+Bootcamp IO,               GenericTelemetry.py,     0x893,   cfs-bcamp-io-hk-tlm.txt
+Bootcamp Monitor,          GenericTelemetry.py,     0x8A3,   cfs-bcamp-mn-hk-tlm.txt
