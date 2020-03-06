@@ -80,6 +80,8 @@ class CHeaderParser():
 			return '--half'
 		elif dataTypeOrig == 'uint32':
 			return '--word'
+		elif dataTypeOrig == 'int32':
+			return '--word'
 		elif dataTypeOrig == 'uint64':
 			return '--double'
 		else:
