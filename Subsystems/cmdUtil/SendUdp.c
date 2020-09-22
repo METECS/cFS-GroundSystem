@@ -86,8 +86,22 @@ int SendUdp(char *hostname, char *portNum, char *packetData, int packetSize) {
         return -3;
     }
 
-    printf("sending data to '%s' (IP : %s); port %d\n", result->ai_canonname,
-        inet_ntoa(((struct sockaddr_in*)result->ai_addr)->sin_addr), port);
+    {
+        /*
+         * Create and use a temporary structure to ensure type alignment
+         */
+        struct sockaddr_in tempSockAddr;
+        memcpy(&tempSockAddr, result->ai_addr, sizeof(tempSockAddr));
+
+        printf("sending data to '%s' (IP : %s); port %d\n", result->ai_canonname,
+            inet_ntoa(tempSockAddr.sin_addr), port);
+
+        /*
+         * Copy the temporary message back to the original source as a good practice
+         * even if not used later
+         */
+        memcpy(result->ai_addr, &tempSockAddr, sizeof(*(result->ai_addr)));
+    }
 
     /*
     ** Create Socket
