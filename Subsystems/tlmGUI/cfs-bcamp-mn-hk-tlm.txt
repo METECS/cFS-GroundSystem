@@ -1,0 +1,5 @@
+Error Counter,                  12,  1,  B,   Dec, NULL,        NULL,        NULL,       NULL
+Command Counter,                13,  1,  B,   Dec, NULL,        NULL,        NULL,       NULL
+Temp Value,                     16,  4,  i,   Dec, NULL,        NULL,        NULL,       NULL
+Temp Direction,                 20,  2,  h,   Enm, NoChange,    Increasing,  Decreasing, NULL
+Temp Range,                     22,  2,  h,   Enm, Nominal,     Hot,         Cold,       NULL
